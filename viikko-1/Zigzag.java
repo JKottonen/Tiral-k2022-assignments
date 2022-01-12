@@ -13,8 +13,10 @@ public class Zigzag {
                 str = str + Integer.toString(i + 1);
             }
         }
-        
-        System.out.println(str);
+
+        for(int i = 0; i < n; i++) {
+            list[i] = str.charAt(i) - 48;
+        }
         return list;
     }
 
