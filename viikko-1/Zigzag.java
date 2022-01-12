@@ -2,23 +2,18 @@ import java.util.*;
 
 public class Zigzag {
     public int[] create(int n) {
-        String str = "";
-        int[] list = new int[n];
-        
-        for(int i = 0; i < n; i++) {
-            if(i % 2 == 0) {
-                str = Integer.toString(i + 1) + ',' + str;
-            }
-            else {
-                str = str + ',' + Integer.toString(i + 1);
+        int[] result = new int[n];
+        int k = (n-1)/2;
+        for (int i = 1; i <= n; i++) {
+            if (i%2 == 0) {
+                result[k+i/2] = i;
+            } else {
+                result[k-i/2] = i;
             }
         }
-        System.out.println(str);
-        for(int i = 0; i < n; i++) {
-            list[i] = str.charAt(i) - 48;
-        }
-        return list;
+        return result;
     }
+
 
     public static void main(String[] args) {
         Zigzag z = new Zigzag();
