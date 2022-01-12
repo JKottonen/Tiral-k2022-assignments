@@ -1,12 +1,16 @@
 def count(n):
     total = 0
-    for i in range(2, n):
+
+    for i in range(2, n + 1):
         fail = False
-        for j in range(2, (i - 1)):
+
+        for j in range(2, i):
             if i % j == 0:
                 fail = True
+                break
         if not fail:
             total += 1
+
     return total
 
 if __name__ == "__main__":
