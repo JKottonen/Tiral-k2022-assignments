@@ -7,13 +7,13 @@ public class Zigzag {
         
         for(int i = 0; i < n; i++) {
             if(i % 2 == 0) {
-                str = Integer.toString(i + 1) + str;
+                str = Integer.toString(i + 1) + ',' + str;
             }
             else {
-                str = str + Integer.toString(i + 1);
+                str = str + ',' + Integer.toString(i + 1);
             }
         }
-
+        System.out.println(str);
         for(int i = 0; i < n; i++) {
             list[i] = str.charAt(i) - 48;
         }
@@ -26,6 +26,6 @@ public class Zigzag {
         System.out.println(Arrays.toString(z.create(2))); // [1,2]
         System.out.println(Arrays.toString(z.create(3))); // [3,1,2]
         System.out.println(Arrays.toString(z.create(4))); // [3,1,2,4]
-        System.out.println(Arrays.toString(z.create(5))); // [5,3,1,2,4]
+        System.out.println(Arrays.toString(z.create(20))); // [5,3,1,2,4]
     }
 }
