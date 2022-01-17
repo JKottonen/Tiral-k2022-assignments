@@ -1,4 +1,3 @@
-import re
 def find(s):
     match = ""
     is_complete = False
