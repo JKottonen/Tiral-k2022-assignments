@@ -1,15 +1,4 @@
-from os import system
-import os
-
-
-def printMatrix(matrix: list):
-    input("")
-    os.system("cls")
-    for line in matrix:
-        print(line)
-    print()
-
-def possible_knight_positions(n, matrix, queenY, queenX):
+def possible_knight_positions(n, queenY, queenX):
     sum = 0
     for y in range(n):
         # Y axis not valid:
@@ -26,29 +15,20 @@ def possible_knight_positions(n, matrix, queenY, queenX):
                 continue
             
             # This one cover's the knights possible movements
-            # (and two squares on X or Y axis, which doesn't matter because the queen makes them invalid anyways)
+            # (and two squares away on X or Y axis, which in this case doesn't matter because the queen makes them invalid anyways)
             if abs(queenY - y) <= 2 and abs(queenX - x) <= 2:
                 continue
-
-            matrix[y][x] = 2
+            
+            # if knight's placement is valid, sum is added by 1
             sum += 1
-            #printMatrix(matrix)
-            matrix[y][x] = 0
             
     return sum
 
-
-
 def count(n: int):
     sum = 0
-    matrix = [[0 for i in range(n)] for j in range(n)]
-    queen = 1
-
     for y in range(n):
         for x in range(n):
-            matrix[y][x] = queen
-            sum += possible_knight_positions(n, matrix, y, x)
-            matrix[y][x] = 0
+            sum += possible_knight_positions(n, y, x)
 
     return sum
 
