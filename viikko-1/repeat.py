@@ -1,18 +1,21 @@
 import re
 def find(s):
-    regex = ""
-    for i in range(0, len(s)):
-        regex += s[i]
-        print(regex)
-        if re.match(f"({regex})", s):
-            return i + 1
+    match = ""
+    is_complete = False
+    i = 0
+    while not is_complete and i < len(s):
+        match += s[i]
+        i += 1
+        factor = int( len(s) // i )
+        if factor * match == s:
+            is_complete = True
 
-    return len(s)
+    return i
             
 
 if __name__ == "__main__":
     print(find("aaa")) # 1
     print(find("abcd")) # 4
     print(find("abcabcabcabc")) # 3
-    print(find("ybabtuaybabtu")) # 7
+    print(find("aybabtuaybabtu")) # 7
     print(find("abcabca")) # 7
