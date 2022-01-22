@@ -1,10 +1,8 @@
-def index_sum(row_length):
-    sum = 0
-    i = row_length
-    while( i >= 0):
-        sum += i
-        i -= 1
-    return sum
+def recSum(n):
+    if n == 0:
+        return 0
+    else:
+        return recSum(n-1) + n
 
 def count(s):
     sum = 0
@@ -16,10 +14,10 @@ def count(s):
         if( prev == i ):
             prevcount += 1
         else:
-            sum += index_sum(prevcount)
+            sum += recSum(prevcount)
             prev = i
             prevcount = 1
-    sum += index_sum(prevcount)
+    sum += recSum(prevcount)
     return sum
 
 if __name__ == "__main__":
