@@ -1,11 +1,17 @@
 def count(s):
-    result = 0
-    for i in range(len(s)):
-        if i == 0 or s[i-1] != s[i]:
-            counter = 0
-        counter += 1
-        result += counter
-    return result
+    sum = 0
+    index = 0
+    distinct = {}
+    for i in s:
+        index += 1
+        if i not in distinct.keys():
+            distinct[i] = 1
+            sum += 1
+        else:
+            distinct[i] += 1
+            sum += distinct[i]
+
+    return sum
 
 if __name__ == "__main__":
     print(count("aaa")) # 6
